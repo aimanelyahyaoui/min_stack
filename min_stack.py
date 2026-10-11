@@ -1,31 +1,23 @@
 class MinStack:
-
     def __init__(self):
         self.stack = []
         self.min_stack = []
 
     def push(self, val: int) -> None:
         self.stack.append(val)
-        if not self.min_stack:
+        if not self.min_stack or val <= self.min_stack[-1]:
             self.min_stack.append(val)
-        else:
-            self.min_stack.append(min(val, self.stack))
 
     def pop(self) -> None:
-        if not self.stack:
-            raise IndexError("Error: pop en un stack buit")
-        val = self.stack.pop()
-        if val == self.min_stack[-1]:
-            self.min_stack.pop()
-        return val
+        if self.stack:
+            val = self.stack.pop()
+            if val == self.min_stack[-1]:
+                self.min_stack.pop()
 
     def top(self) -> int:
-        if not self.stack:
-            raise IndexError("Error: top en un stack buit")
         return self.stack[-1]
-        
 
     def getMin(self) -> int:
-        if not self.min_stack:
-            raise IndexError("Error: get_mmin en un stack buit")
         return self.min_stack[-1]
+
+    get_min = getMin
