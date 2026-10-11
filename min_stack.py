@@ -12,10 +12,16 @@ class MinStack:
             self.min_stack.append(min(val, self.stack))
 
     def pop(self) -> None:
-        pass
+        if not self.stack:
+            raise IndexError("Error: pop en un stack buit")
+        val = self.stack.pop()
+        if val == self.min_stack[-1]:
+            self.min_stack.pop()
+        return val
 
     def top(self) -> int:
-        pass
+        
+        
 
     def getMin(self) -> int:
         pass
