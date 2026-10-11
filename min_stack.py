@@ -26,4 +26,6 @@ class MinStack:
         
 
     def getMin(self) -> int:
-        pass
+        if not self.min_stack:
+            raise IndexError("Error: get_mmin en un stack buit")
+        return self.min_stack[-1]
