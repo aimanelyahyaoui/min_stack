@@ -22,6 +22,7 @@ class MinStack:
     def top(self) -> int:
         if not self.stack:
             raise IndexError("Error: top en un stack buit")
+        return self.stack[-1]
         
 
     def getMin(self) -> int:
