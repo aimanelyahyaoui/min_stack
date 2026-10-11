@@ -20,7 +20,8 @@ class MinStack:
         return val
 
     def top(self) -> int:
-        
+        if not self.stack:
+            raise IndexError("Error: top en un stack buit")
         
 
     def getMin(self) -> int:
